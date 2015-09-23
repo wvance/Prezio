@@ -5,7 +5,7 @@
 
 ### Steps to run locally: 
 
-1. Download github repo to local computer 
+1. Download [GitHub Repo](https://github.com/wvance/Prezio) to local computer 
 2. Open terminal applicaiton and navigate to downloaded folder
 3. Run 'bundle install' Note: you may need to install 'bundle' before completing this step
 4. Run 'rake db:migrate' Note: you may need to install 'rake' before completing this step
