@@ -4,7 +4,7 @@
 - Environment : Mac OSX 10.10.5
 
 Steps to run locally: 
-'''
+```
 1. Download github repo to local computer 
 2. Open terminal applicaiton and navigate to downloaded folder
 3. Run 'bundle install' *Note: you may need to install 'bundle' before completing this step
