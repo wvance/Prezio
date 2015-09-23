@@ -3,7 +3,7 @@
 - Ruby Version : 2.2.0p0
 - Environment : Mac OSX 10.10.5
 
-Steps to run locally: 
+### Steps to run locally: 
 
 1. Download github repo to local computer 
 2. Open terminal applicaiton and navigate to downloaded folder
