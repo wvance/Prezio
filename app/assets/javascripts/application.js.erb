@@ -47,6 +47,7 @@ $(document).ready(function(){
   var cw=canvas.width;
   var ch=canvas.height;
 
+  // ROWS * COL = NUMBER STUDENTS IN CLASS
   var rows=6;
   var cols=6;
 
@@ -121,7 +122,7 @@ $(document).ready(function(){
   }
 });
 
-function shuffle(a){
-  for(var j, x, i = a.length; i; j = Math.floor(Math.random() * i), x = a[--i], a[i] = a[j], a[j] = x);
-  return a;
+function shuffle(pieces){
+  for(var j, x, i = pieces.length; i; j = Math.floor(Math.random() * i), x = pieces[--i], pieces[i] = pieces[j], pieces[j] = x);
+  return pieces;
 };

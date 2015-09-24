@@ -6,11 +6,9 @@ body{
 	.center{
 		text-align: center;
 	}
-	#sliceImage {
-	  position: relative;
-	  width: 400px; 
-	  height: 400px;
+	#canvas{
+		border:1px solid black;
+		width: 400px;
+		height: 300px;
 	}
 }
-
-#canvas{border:1px solid red;}
