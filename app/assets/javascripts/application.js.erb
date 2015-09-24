@@ -1,0 +1,125 @@
+// This is a manifest file that'll be compiled into application.js, which will include all the files
+// listed below.
+//
+// Any JavaScript/Coffee file within this directory, lib/assets/javascripts, vendor/assets/javascripts,
+// or any plugin's vendor/assets/javascripts directory can be referenced here using a relative path.
+//
+// It's not advisable to add code directly here, but if you do, it'll appear at the bottom of the
+// compiled file.
+//
+// Read Sprockets README (https://github.com/sstephenson/sprockets#sprockets-directives) for details
+// about supported directives.
+//
+//= require jquery
+//= require jquery-ui
+//= require jquery.turbolinks
+//= require jquery_ujs
+//
+//= require twitter/bootstrap
+//
+//= require turbolinks
+//= require_tree .
+
+
+// FUNCTION FOR SMOOTH SCROLLING
+$(function() {
+  // CHECK IF LINK
+  $('a[href*=#]:not([href=#])').click(function() {
+    if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
+      var target = $(this.hash);
+      target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
+      if (target.length) {
+        $('html,body').animate({
+          scrollTop: target.offset().top
+        }, 1000);
+        console.log("Success");
+        return false;
+      }
+    }
+  });
+});
+
+$(document).ready(function(){
+  var canvas=document.getElementById("canvas");
+  var ctx=canvas.getContext("2d");
+  var cw=canvas.width;
+  var ch=canvas.height;
+
+  var rows=6;
+  var cols=6;
+
+  var img=new Image();
+  img.onload=start;
+  img.src= "<%= asset_path('howdy.jpg') %>";
+  function start(){
+
+    var iw=canvas.width=img.width;
+    var ih=canvas.height=img.height;
+    var pieceWidth=iw/cols;
+    var pieceHeight=ih/rows;
+
+    var pieces = [
+      {col:0,row:0},
+      {col:1,row:0},
+      {col:2,row:0},
+      {col:3,row:0},
+      {col:4,row:0},
+      {col:5,row:0},
+
+      {col:0,row:1},
+      {col:1,row:1},
+      {col:2,row:1},
+      {col:3,row:1},
+      {col:4,row:1},
+      {col:5,row:1},
+
+      {col:0,row:2},
+      {col:1,row:2},
+      {col:2,row:2},
+      {col:3,row:2},
+      {col:4,row:2},
+      {col:5,row:2},
+
+      {col:0,row:3},
+      {col:1,row:3},
+      {col:2,row:3},
+      {col:3,row:3},
+      {col:4,row:3},
+      {col:5,row:3},
+
+      {col:0,row:4},
+      {col:1,row:4},
+      {col:2,row:4},
+      {col:3,row:4},
+      {col:4,row:4},
+      {col:5,row:4},
+
+      {col:0,row:5},
+      {col:1,row:5},
+      {col:2,row:5},
+      {col:3,row:5},
+      {col:4,row:5},
+      {col:5,row:5}
+    ]
+      shuffle(pieces);
+
+      var i=0;
+      for(var y=0;y<rows;y++){
+      for(var x=0;x<cols;x++){
+      var p=pieces[i++];
+    ctx.drawImage(
+      // from the original image
+      img,
+      // take the next x,y piece
+      x*pieceWidth, y*pieceHeight, pieceWidth, pieceHeight,
+      // draw it on canvas based on the shuffled pieces[] array
+      p.col*pieceWidth, p.row*pieceHeight, pieceWidth, pieceHeight
+    );
+    }}
+  }
+});
+
+function shuffle(a){
+  for(var j, x, i = a.length; i; j = Math.floor(Math.random() * i), x = a[--i], a[i] = a[j], a[j] = x);
+  return a;
+};
