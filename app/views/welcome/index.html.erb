@@ -1,8 +1,18 @@
 <div class="row">
-	<div class="col-xs-12">
-		<h1 class="center">Welcome to Prezio</h1>
+	<div class="col-xs-4">
+		<h1 class="">Welcome to Prezio</h1>
+		<h4 class="">List of students</h4>
+		<ul>
+			<% @users.each do |user| %>
+				<li>
+					<%=user.user_name%>
+				</li>
+			<%end%>
+		</ul>
+		<h4 class="">Please select a class</h4>
 	</div>
-	<div class="col-xs-12 center">
+	<div class="col-xs-6 center">
+	<br>
 		<canvas id="canvas"></canvas>
 	</div>
 </div>
