@@ -5,6 +5,7 @@ gem 'twitter-bootstrap-rails'
 gem 'jquery-turbolinks'
 gem 'kaminari'                      # PAGINATION GEM
 gem 'figaro'
+gem "d3-rails"
 
 gem "jquery-ui-rails"
 
