@@ -48,8 +48,10 @@ $(document).ready(function(){
   var ch=canvas.height;
 
   // ROWS * COL = NUMBER STUDENTS IN CLASS
-  var rows=6;
-  var cols=6;
+  var numberStudents = 82;
+  var grid = calculate_grid(numberStudents);
+  var rows= grid[0];
+  var cols= grid[1];
 
   var img= new Image();
   img.onload=start;
@@ -61,49 +63,7 @@ $(document).ready(function(){
     var pieceWidth=iw/cols;
     var pieceHeight=ih/rows;
 
-    var pieces = [
-      {col:0,row:0},
-      {col:1,row:0},
-      {col:2,row:0},
-      {col:3,row:0},
-      {col:4,row:0},
-      {col:5,row:0},
-
-      {col:0,row:1},
-      {col:1,row:1},
-      {col:2,row:1},
-      {col:3,row:1},
-      {col:4,row:1},
-      {col:5,row:1},
-
-      {col:0,row:2},
-      {col:1,row:2},
-      {col:2,row:2},
-      {col:3,row:2},
-      {col:4,row:2},
-      {col:5,row:2},
-
-      {col:0,row:3},
-      {col:1,row:3},
-      {col:2,row:3},
-      {col:3,row:3},
-      {col:4,row:3},
-      {col:5,row:3},
-
-      {col:0,row:4},
-      {col:1,row:4},
-      {col:2,row:4},
-      {col:3,row:4},
-      {col:4,row:4},
-      {col:5,row:4},
-
-      {col:0,row:5},
-      {col:1,row:5},
-      {col:2,row:5},
-      {col:3,row:5},
-      {col:4,row:5},
-      {col:5,row:5}
-    ]
+    var pieces = createGridArray(rows, cols);
     
     shuffle(pieces);
 
@@ -124,6 +84,32 @@ $(document).ready(function(){
     }
   }
 });
+
+function createGridArray(rows, cols){
+  var pieces = [];
+  // HAS TO BE IN THIS ORDER!: CANVAS DRAWS THIS WAY
+  for(rowN = 0; rowN < rows; ++rowN){
+    for(colN = 0; colN < cols; ++colN){
+      pieces.push({col:colN,row:rowN});
+    }
+  }
+  return pieces;
+};
+
+function calculate_grid(studetns){
+  var maximum_students = 1000
+  var numberSquares = 0
+  // THE PURPOSE OF THIS IS TO MAKE A SQUARE, WE WANT ROWS AND COLS TO BE THE SAME NUMBER 
+  // FOR 100 STUDENTS THIS WILL RETURN 10, FOR 99 STUDENTS ALSO 10, BUT FOR 81 IT RETURNS 9
+  for (; (numberSquares*numberSquares) < (maximum_students); ++numberSquares) { 
+    if ((numberSquares * numberSquares) >= studetns){
+      break
+    }
+  }
+  var rows = numberSquares;
+  var cols = numberSquares;
+  return [rows, cols];
+};
 
 function shuffle(pieces){
   for(var j, x, i = pieces.length; i; j = Math.floor(Math.random() * i), x = pieces[--i], pieces[i] = pieces[j], pieces[j] = x);
