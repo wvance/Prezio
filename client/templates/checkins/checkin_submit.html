@@ -1,0 +1,17 @@
+<template name = "checkinSubmit">
+  <form class="main form page">
+    <div class="form-group">
+      <label class="control-label" for="location">Location</label>
+      <div class="controls">
+        <input name="location" id="location" type="text" value="" placeholder="Your Location" class="form-control"/>
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="control-label" for="user">User</label>
+      <div class="controls">
+          <input name="user" id="user" type="text" value="" placeholder="{{currentUser.username}}, {{currentUser._id}}" class="form-control"/>
+      </div>
+    </div>
+    <input type="submit" value="Submit" class="btn btn-primary"/>
+  </form>
+</template>

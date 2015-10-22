@@ -1,0 +1,13 @@
+<template name="userItem">
+  <div class="user">
+    <div class="user-content">
+      <h4>
+        <a href="{{pathFor 'userPage'}}">User ID: {{_id}}</a><br>
+        Name: {{name}}<br>
+        Profile Picture Url: {{pictureUrl}}<br>
+        <img class="profilePicture" src="{{pictureUrl}}">
+      </h4>
+    </div>
+  </div>
+</template>
+

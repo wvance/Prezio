@@ -1,7 +1,11 @@
 <template name = "checkinItem">
-  <div class="post">
+  <div class="checkin">
     <div class="checkin-content">
-      <h3><a href="{{url}}">{{user}}</a><span>: {{location}}</span> : {{domain}}</h3>
+      <h4>
+        <a href="{{pathFor 'checkinPage'}}">Checkin ID: {{_id}}</a><br>
+        User ID: {{user_id}}<br>
+        Location ID: {{location_id}}
+      </h4>
     </div>
   </div>
 </template>
