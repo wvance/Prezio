@@ -1,4 +1,4 @@
-Template.welcome.helpers({
+Template.welcomeLocationsForm.helpers({
   locations: function(){
     return Locations.find();
   }

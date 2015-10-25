@@ -1,8 +1,8 @@
 Template.welcome.rendered = function () {
   // getParseLocations();
   // getParseCheckins();
-  // setInterval(getParseLocations, 10000);
-  // setInterval(getParseCheckins, 3000);
+  setInterval(getParseLocations, 10000);
+  setInterval(getParseCheckins, 3000);
 };
 
 function getParseLocations(){
@@ -16,7 +16,7 @@ function getParseLocations(){
       saveParseLocations(results);
     },
     error:function(error) {
-      alert("Error when getting location objects!");
+      console.log("Error when getting location objects!");
     }
   });
 }
@@ -32,7 +32,7 @@ function getParseCheckins(){
       saveParseCheckins(results);
     },
     error:function(error){
-      alert("Error while getting checkin objects!")
+      console.log("Error while getting checkin objects!")
     }
   });
 }
