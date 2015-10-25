@@ -44,6 +44,7 @@ function saveParseLocations(locations){
     var location = {
       _id: object.id,
       name: object.get('name'),
+      expected_checkins: object.get('expected'),
       user_id: creator.id,
       bluetooth_id: object.get('bluetoothId'),
       external_id: object.id,
