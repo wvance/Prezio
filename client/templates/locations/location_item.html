@@ -1,13 +1,29 @@
 <template name = "locationItem">
   <div class="location">
     <div class="location-content">
+      {{#if currentUser}}
+        {{> locationCheckinSubmit}}
+      {{else}}
+        <p>Please log in to checkin.</p>
+      {{/if}}
       <h4>
         <a href="{{pathFor 'locationPage'}}">Location ID: {{_id}}</a><br>
+        Checkins: {{locationCheckins.count}}<br>
         Name: {{name}}<br>
-        Creator ID: {{creator_id}}<br>
+        Creator ID: {{user_id}}<br>
         Bluetooth ID: {{bluetooth_id}}<br>
-        Expires: {{expires}}
+        Expires: {{expires}}<br>
+        {{#if ownLocation}}
+          <a href="{{pathFor 'locationEdit'}}">Edit</a>
+        {{/if}}
       </h4>
+      <hr>
+      <ul>
+        {{#each locationCheckins}}
+          <li>{{user_id}}: {{author}}</li>
+        {{/each}}
+      </ul>
+      <hr>
     </div>
   </div>
 </template>

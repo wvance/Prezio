@@ -23,3 +23,6 @@ sacha:spin
 ian:accounts-ui-bootstrap-3
 accounts-password
 brunolemos:parse-sdk
+audit-argument-checks
+check
+fortawesome:fontawesome

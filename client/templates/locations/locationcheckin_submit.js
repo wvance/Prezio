@@ -1,10 +1,10 @@
-Template.checkinSubmit.events({
-  'submit form': function(e){
+Template.locationCheckinSubmit.events({
+  'submit form': function(e, template){
     e.preventDefault();
 
     var checkin = {
-      location_id: $(e.target).find('[name=location]').val(),
-      is_excused: $(e.target).find('[name=excused]').is(":checked")
+      location_id: template.data._id,
+      is_excused: false
       // DONT WANT TO CHECK FOR THIS ON CLIENT SIDE
       // user_id: Meteor.userId()
     };
@@ -17,12 +17,6 @@ Template.checkinSubmit.events({
         throwError('You have already checked in here');
       Router.go('checkinPage', {_id: result._id});
     });
-  }
-});
 
-Template.checkinSubmit.helpers({
-  // GET LIST OF POSSIBLE LOCATIONS
-  locations: function(){
-    return Locations.find();
   }
 });
