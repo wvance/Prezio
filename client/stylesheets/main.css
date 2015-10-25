@@ -1,0 +1,75 @@
+@import url(https://fonts.googleapis.com/css?family=Raleway:400,300);
+@import url(http://fonts.googleapis.com/css?family=Raleway+Dots);
+/*BODY*/
+body{
+  overflow-x: hidden;
+  overflow-y: scroll; /* has to be scroll, not auto */
+}
+html, body{
+  height: 100%;
+  /*font-family: 'Roboto', Helvetica, Arial, sans-serif;*/
+  font-weight: 300;
+  -webkit-overflow-scrolling: touch;
+}
+/*h1, h2, h3, h4{
+  font-family: 'ralewaylight';
+}
+h5, h6{
+  font-family: 'ralewayregular';
+}*/
+p{
+  font-size: 18px;
+  color: #696969;
+  line-height: 30px;
+}
+.center{
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+.left{
+  text-align: left;
+  margin-left: 0;
+  margin-right: auto;
+}
+.right{
+  text-align: right;
+  margin-left: auto;
+  margin-right: 0;
+}
+.childElement{
+  margin-top: 10px;
+  margin-left: 20px;
+}
+.pagFooter{
+  text-align: center;
+}
+
+/*LINKS*/
+/*a:link{
+  color:white;
+  text-decoration: none !important;
+}
+a:visited {
+  color:black;
+}*/
+a:hover{
+  -webkit-transition: all 500ms ease;
+  -moz-transition: all 500ms ease;
+  -ms-transition: all 500ms ease;
+  -o-transition: all 500ms ease;
+  transition: all 500ms ease;
+}
+a {
+  -webkit-transition: all 500ms ease-out;
+  -moz-transition: all 500ms ease-out;
+  -ms-transition: all 500ms ease-out;
+  -o-transition: all 500ms ease-out;
+  transition: all 500ms ease-out;
+}
+
+ul{
+  list-style-type: none;
+  padding: 0px;
+  margin: 0px;
+}

@@ -1,34 +1,34 @@
-if (Checkins.find().count() == 0){
-  Checkins.insert({
-    user_id: 1,
-    location_id: 1
-  });
-  Checkins.insert({
-    user_id: 4,
-    location_id: 2
-  });
-  Checkins.insert({
-    user_id: 2,
-    location_id: 1
-  });
-}
+// if (Checkins.find().count() == 0){
+//   Checkins.insert({
+//     user_id: 1,
+//     location_id: 1
+//   });
+//   Checkins.insert({
+//     user_id: 4,
+//     location_id: 2
+//   });
+//   Checkins.insert({
+//     user_id: 2,
+//     location_id: 1
+//   });
+// }
 
-if (Locations.find().count() == 0){
-  Locations.insert({
-    bluetooth_id: 'TEST_ID_1',
-    creator_id: 5,
-    name:'Computer Human Interaction',
-    expires: 'Tomorrow'
-  });
-  Locations.insert({
-    bluetooth_id: 'TEST_ID_2',
-    creator_id: 5,
-    name:'Ethics',
-    expires: 'Tomorrow'
-  });
-}
+// if (Locations.find().count() == 0){
+//   Locations.insert({
+//     bluetooth_id: 'TEST_ID_1',
+//     creator_id: 5,
+//     name:'Computer Human Interaction',
+//     expires: 'Tomorrow'
+//   });
+//   Locations.insert({
+//     bluetooth_id: 'TEST_ID_2',
+//     creator_id: 5,
+//     name:'Ethics',
+//     expires: 'Tomorrow'
+//   });
+// }
 
-// if (Users.find().count() == 0){
+// // if (Users.find().count() == 0){
 //   Users.insert({
 //     name: 'Wesley Vance',
 //     pictureUrl: 'http://i.imgur.com/nrHpY6X.jpg'

@@ -1,0 +1,23 @@
+<template name="welcome">
+  <div class="row">
+    <div class="col-md-8 col-sm-12 center">
+      <div class="jumbotron">
+        <h1>Welcome to Prezio</h1>
+        <p>Would you like to create a new location or checkin to one now?</p>
+        <p>
+          <a class="btn btn-success btn-lg" href="{{pathFor 'checkinSubmit'}}" role="button">Checkin</a>
+          <a class="btn btn-primary btn-lg" href="{{pathFor 'locationSubmit'}}" role="button">Create Location</a>
+        </p>
+      </div>
+    </div>
+    <div class="col-md-4 col-sm-12">
+      <ul>
+        {{#each locations}}
+          <li>
+            <a href="{{pathFor 'locationPage'}}"><h3>{{name}}</h3></a>
+          </li>
+        {{/each}}
+      </ul>
+    </div>
+  </div>
+</template>

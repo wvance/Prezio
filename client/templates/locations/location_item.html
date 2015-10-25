@@ -1,29 +1,40 @@
 <template name = "locationItem">
-  <div class="location">
-    <div class="location-content">
-      {{#if currentUser}}
-        {{> locationCheckinSubmit}}
-      {{else}}
-        <p>Please log in to checkin.</p>
-      {{/if}}
-      <h4>
-        <a href="{{pathFor 'locationPage'}}">Location ID: {{_id}}</a><br>
-        Checkins: {{locationCheckins.count}}<br>
-        Name: {{name}}<br>
-        Creator ID: {{user_id}}<br>
-        Bluetooth ID: {{bluetooth_id}}<br>
-        Expires: {{expires}}<br>
-        {{#if ownLocation}}
-          <a href="{{pathFor 'locationEdit'}}">Edit</a>
-        {{/if}}
-      </h4>
-      <hr>
-      <ul>
-        {{#each locationCheckins}}
-          <li>{{user_id}}: {{author}}</li>
-        {{/each}}
-      </ul>
-      <hr>
+  <div class="row">
+    <div class="col-xs-12">
+      <div class="location">
+        <div class="location-content">
+          <div class="locationHeader">{{locationCheckins.count}} <span class="center">{{name}}</span></div>
+          {{#if currentUser}}
+            {{> locationCheckinSubmit}}
+          {{else}}
+            <p>Please log in to checkin.</p>
+          {{/if}}
+          <h4>
+            <a href="{{pathFor 'locationPage'}}">Location ID: {{_id}}</a><br>
+            External ID: {{external_id}}<br>
+            Checkins: {{locationCheckins.count}}<br>
+            Name: {{name}}<br>
+            Creator ID: {{user_id}}<br>
+            Bluetooth ID: {{bluetooth_id}}<br>
+            Expires: {{expires}}<br>
+            {{#if ownLocation}}
+              <a href="{{pathFor 'locationEdit'}}">Edit</a>
+            {{/if}}
+          </h4>
+          <hr>
+          <ul>
+            {{#each locationCheckins}}
+              <li>{{user_id}}: {{author}}</li>
+            {{/each}}
+          </ul>
+          <hr>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-12">
+      <canvas id="canvas" width=200 height=200></canvas>
     </div>
   </div>
 </template>

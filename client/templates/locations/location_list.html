@@ -3,8 +3,41 @@
     <hr>
     <h1>Locations</h1>
     <hr>
-    {{#each locations}}
-      {{> locationItem}}
-    {{/each}}
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>External ID</th>
+          <th>Checkins</th>
+          <th>Name</th>
+          <th>Creator ID</th>
+          <th>Bluetooth ID</th>
+          <th>Expires</th>
+          <th></th>
+        </tr>
+      </thead>
+      {{#each locations}}
+        {{> locationRow}}
+      {{/each}}
+    </table>
   </div>
+</template>
+
+<template name ="locationRow">
+  <tbody>
+    <tr>
+      <td><a href="{{pathFor 'locationPage'}}">{{_id}}</a></td>
+      <td>{{external_id}}</td>
+      <td>{{locationCheckins.count}}</td>
+      <td>{{name}}</td>
+      <td>{{user_id}}</td>
+      <td>{{bluetooth_id}}</td>
+      <td>{{expires}}</td>
+      <td>
+        {{#if ownLocation}}
+          <a href="{{pathFor 'locationEdit'}}">Edit</a>
+        {{/if}}
+      </td>
+    </tr>
+  </tbody>
 </template>
