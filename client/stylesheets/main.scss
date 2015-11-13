@@ -1,9 +1,19 @@
 @import url(https://fonts.googleapis.com/css?family=Raleway:400,300);
 @import url(http://fonts.googleapis.com/css?family=Raleway+Dots);
 /*BODY*/
+
+// STYLE COLORS
+$teal: #6ed3cf;
+$purple: #9068be;
+$red: #e62739;
+$lightGrey: #e1e8f0;
+$mediumGrey: #55585d;
+$blueGrey: #4d5256;
+
 body{
   overflow-x: hidden;
   overflow-y: scroll; /* has to be scroll, not auto */
+  background-color:$teal;
 }
 html, body{
   height: 100%;
@@ -21,6 +31,9 @@ p{
   font-size: 18px;
   color: #696969;
   line-height: 30px;
+}
+.white{
+  color:white;
 }
 .center{
   text-align: center;

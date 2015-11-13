@@ -7,6 +7,17 @@ Template.locationItem.helpers({
     return this.user_id === Meteor.userId();
   }
 });
+
+Template.debugLocation.helpers({
+  locationCheckins: function(){
+    return Checkins.find({location_id: this._id});
+  }
+});
+
+Template.imgCanvas.rendered = function () {
+  renderTiles();
+}
+
 function getLocation(){
   var location = Locations.findOne({_id:Template.parentData(0)._id});
 
@@ -21,7 +32,7 @@ function getCurrentCheckins(location){
   return Checkins.find({location_id: location._id}).fetch().length;
 }
 
-Template.locationItem.rendered = function () {
+function renderTiles(){
   var location = getLocation();
   console.log("Number of Expected: " + getExpectedCheckins(location));
   console.log("Number of Current Checkins: " + getCurrentCheckins(location));
@@ -38,7 +49,7 @@ Template.locationItem.rendered = function () {
 
   console.log("Missing: "+missingNumberStudents);
 
-  missingNumberStudents = 2;
+  // missingNumberStudents = 2;
   var grid = calculate_grid(totalNumberStudents);
   var rows= grid[0];
   var cols= grid[1];
@@ -58,6 +69,24 @@ Template.locationItem.rendered = function () {
     // shuffle(pieces);
 
     // Draw each piece on canvas
+    // HOW TO FILL IN RANDOM ORDER?
+    // INITIALIZE ARRAY WITH ELEMNTS IN IT, SHFFLE ARRAY, USE VALUES IN THE ARRAY FOR THE LOOPS
+    var randomOrder = [];
+    for (index = 0; index < pieces.length; index++){
+      randomOrder.push(index);
+      console.log("Number Inserted: " + index);
+    }
+
+    shuffle(randomOrder);
+
+    console.log("RANDOM ORDER SIZE" + randomOrder.length);
+    for (index2 = 0; index2 < randomOrder.length; index2++){
+      console.log("Shuffled order " + randomOrder[index2]);
+    }
+
+
+
+    // GOING THROUGH EACH COL AND ROW AND PLACING IMAGES ONCE AT A TIME BOTTOM TO TOP
     var i = 0;
     for(var y=0;y<rows;y++){ // Iterate through each row
       for(var x=0;x<cols;x++){ // Iterate through each col

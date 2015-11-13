@@ -3,8 +3,3 @@ Template.welcome.helpers({
     return Locations.find();
   }
 });
-Template.welcomeLocations.helpers({
-  locations: function(){
-    return Locations.find();
-  }
-});

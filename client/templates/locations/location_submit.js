@@ -4,6 +4,7 @@ Template.locationSubmit.events({
 
     var location = {
       name: $(e.target).find('[name=name]').val(),
+      expected_checkins: $(e.target).find('[name=estimate]').val()
       // DONT WANT TO CHECK FOR THIS ON CLIENT SIDE
       // user_id: Meteor.userId()
     };

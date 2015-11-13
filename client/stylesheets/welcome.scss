@@ -1,0 +1,26 @@
+/*GOING TO SWTICH THIS OVER TO SCSS SOON*/
+
+// STYLE COLORS
+$teal: #6ed3cf;
+$purple: #9068be;
+$red: #e62739;
+$lightGrey: #e1e8f0;
+$mediumGrey: #55585d;
+$blueGrey: #4d5256;
+
+
+#welcomeContainer{
+  .thumbnail{
+    height:125px;
+    background-color: $mediumGrey;
+  }
+  .caption{
+    color:white;
+    a{
+      text-decoration: none !important;
+    }
+  }
+  a:hover{
+    text-decoration: none;
+  }
+}

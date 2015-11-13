@@ -1,7 +1,22 @@
 <template name="welcome">
-  <div class="row">
+  <div class="row" id="welcomeContainer">
     <div class="col-md-12 col-sm-12">
-      <div class="jumbotron">
+      <h1 class="white center">What class are you teaching?</h1><br>
+      {{#each locations}}
+        <div class="col-sm-6 col-md-6">
+          <a href="{{pathFor 'locationPage'}}">
+            <div class="thumbnail">
+              <div class="caption center">
+                <h2>{{name}}</h2>
+              </div>
+            </div>
+          </a>
+        </div>
+      {{/each}}
+      <br>
+      <h1 class="white center"><i class="fa fa-plus"></i> Add New Class</h1>
+      <!-- ADD NEW CHECKIN BUTTON HERE -->
+      <!-- <div class="jumbotron">
         <h1>Welcome to Prezio</h1>
         <p>
           {{#if currentUser}}
@@ -10,30 +25,9 @@
             <a class="btn btn-primary btn-lg" href="{{pathFor 'locationSubmit'}}" role="button">Create Location</a>
           {{/if}}
         </p>
-      </div>
-      <div class="row">
-        {{>welcomeLocations}}
-      </div>
+      </div> -->
     </div>
   </div>
 </template>
 
-<template name="welcomeLocations">
-  {{#each locations}}
-    <div class="col-sm-6 col-md-4">
-      <a href="{{pathFor 'locationPage'}}">
-        <div class="thumbnail">
-          <div class="caption">
-            <h3>{{name}}</h3>
-            <p>
-              {{#if currentUser}}
-                <a href="{{pathFor 'submitCheckin'}}" class="btn btn-default" role="button">CheckIn</a>
-              {{/if}}
-            </p>
-          </div>
-        </div>
-      </a>
-    </div>
-  {{/each}}
-</template>
 

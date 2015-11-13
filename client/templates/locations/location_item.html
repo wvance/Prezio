@@ -1,40 +1,60 @@
 <template name = "locationItem">
   <div class="row">
-    <div class="col-xs-3">
-      <div class="location">
-        <div class="location-content">
-          <div class="locationHeader">
-            {{locationCheckins.count}} of {{expected_checkins}} <span class="center">{{name}}</span>
-          </div>
+    <div class="col-xs-12 center">
+      <h1 class="white center largeFont"><i class="fa fa-users"></i> {{name}}: {{locationCheckins.count}} of {{expected_checkins}}</h1>
+      <!-- <div class="locationCheckin">
+        <span class="pull-right">
           {{#if currentUser}}
             {{> locationCheckinSubmit}}
           {{else}}
-            <p>Please log in to checkin.</p>
+
           {{/if}}
-          <h4>
-            <a href="{{pathFor 'locationPage'}}">Location ID: {{_id}}</a><br>
-            External ID: {{external_id}}<br>
-            Checkins: {{locationCheckins.count}}<br>
-            Name: {{name}}<br>
-            Creator ID: {{user_id}}<br>
-            Bluetooth ID: {{bluetooth_id}}<br>
-            Expires: {{expires}}<br>
-            {{#if ownLocation}}
-              <a href="{{pathFor 'locationEdit'}}">Edit</a>
-            {{/if}}
-          </h4>
-          <hr>
-          <ul>
-            {{#each locationCheckins}}
-              <li>{{user_id}}: {{author}}</li>
-            {{/each}}
-          </ul>
-          <hr>
-        </div>
-      </div>
+        </span>
+      </div> -->
     </div>
-    <div class="col-xs-8 col-xs-offset-1">
-      <canvas id="canvas" width=200 height=200></canvas>
+  </div>
+  <div class="row">
+    <div class="col-xs-12 center">
+      {{> imgCanvas}}
+    </div>
+  </div>
+  <div class="debugLocation">
+    <!-- {{>debugLocation}} -->
+  </div>
+</template>
+
+<template name = "imgCanvas">
+  <canvas id="canvas" class="locationImage">
+    <br>
+    Sorry, please update your browser.
+  </canvas>
+</template>
+
+<template name = "debugLocation">
+  <div class="row">
+    <h1>Debugging Enabled </h1>
+    <div class="col-xs-8">
+      <h4>Location Meta </h4>
+      <h4>
+        <a href="{{pathFor 'locationPage'}}">Location ID: {{_id}}</a><br>
+        External ID: {{external_id}}<br>
+        Checkins: {{locationCheckins.count}}<br>
+        Name: {{name}}<br>
+        Creator ID: {{user_id}}<br>
+        Bluetooth ID: {{bluetooth_id}}<br>
+        Expires: {{expires}}<br>
+        {{#if ownLocation}}
+          <a href="{{pathFor 'locationEdit'}}">Edit</a>
+        {{/if}}
+      </h4>
+    </div>
+    <div class="col-xs-4">
+      <h4>Current Checkins</h4>
+      <ul>
+        {{#each locationCheckins}}
+          <li>{{user_id}}: {{author}}</li>
+        {{/each}}
+      </ul>
     </div>
   </div>
 </template>
