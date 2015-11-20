@@ -11,7 +11,7 @@ $blueGrey: #4d5256;
 
 #welcomeContainer{
   .thumbnail{
-    height:125px;
+    height:110px;
     background-color: $mediumGrey;
   }
   .caption{
@@ -21,6 +21,9 @@ $blueGrey: #4d5256;
     }
   }
   a:hover{
+    h2{
+      color:$purple;
+    }
     text-decoration: none;
   }
 }

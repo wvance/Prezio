@@ -54,6 +54,21 @@ p{
   margin-top: 10px;
   margin-left: 20px;
 }
+.navfixed{
+  position: fixed;
+  right:50px;
+  top:10px;
+  z-index:9999;
+  color:white;
+  a{
+    color:$lightGrey;
+    text-decoration: none !important;
+  }
+  a:hover{
+    color:$purple;
+    text-decoration: none;
+  }
+}
 .pagFooter{
   text-align: center;
 }
