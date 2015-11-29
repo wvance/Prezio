@@ -1,7 +1,7 @@
 Template.welcome.rendered = function () {
   // getParseLocations();
   // getParseCheckins();
-  setInterval(getParseLocations, 10000);
+  setInterval(getParseLocations, 3000);
   setInterval(getParseCheckins, 3000);
 };
 

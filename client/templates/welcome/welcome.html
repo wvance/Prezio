@@ -1,18 +1,25 @@
 <template name="welcome">
   <div class="row" id="welcomeContainer">
     <div class="col-md-12 col-sm-12">
-      <h1 class="white center">What class are you teaching?</h1><br>
+      {{#unless locations.length = 0}}
+        <h1 class="white center">Select your checkin!</h1><br>
+      {{/unless}}
+
       {{#each locations}}
         <div class="col-sm-6 col-md-6">
           <a href="{{pathFor 'locationPage'}}">
             <div class="thumbnail">
               <div class="caption center">
                 <h2>{{name}}</h2>
+                <!-- <h6>{{submitted}}</h6> -->
               </div>
             </div>
           </a>
         </div>
       {{/each}}
+      <div class="col-sm-6 col-md-6">
+        <img src="images/android.png" alt="Android" height="85" width="260">
+      </div>
       <br>
       <!-- <h1 class="white center"><i class="fa fa-plus"></i> Add New Class</h1> -->
       <!-- ADD NEW CHECKIN BUTTON HERE -->

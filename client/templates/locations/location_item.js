@@ -1,5 +1,4 @@
 Template.locationItem.helpers({
-
   locationCheckins: function(){
     return Checkins.find({location_id: this._id});
   },
@@ -8,15 +7,24 @@ Template.locationItem.helpers({
   }
 });
 
+Template.locationItem.Checkins = function(){
+
+}
 Template.debugLocation.helpers({
   locationCheckins: function(){
     return Checkins.find({location_id: this._id});
   }
 });
 
-Template.imgCanvas.rendered = function () {
-  renderTiles();
-}
+// Template.locationItem.rendered = function () {
+//   renderTiles();
+// }
+Template.locationItem.onRendered(function() {
+  var self = this;
+  self.autorun(function() {
+    renderTiles();
+  });
+});
 
 function getLocation(){
   var location = Locations.findOne({_id:Template.parentData(0)._id});
