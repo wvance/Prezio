@@ -10,6 +10,7 @@ Template.locationItem.helpers({
 Template.locationItem.Checkins = function(){
 
 }
+
 Template.debugLocation.helpers({
   locationCheckins: function(){
     return Checkins.find({location_id: this._id});
@@ -87,14 +88,14 @@ function renderTiles(image){
     var randomOrder = [];
     for (index = 0; index < pieces.length; index++){
       randomOrder.push(index);
-      console.log("Number Inserted: " + index);
+      // console.log("Number Inserted: " + index);
     }
 
     shuffle(randomOrder);
 
-    console.log("RANDOM ORDER SIZE" + randomOrder.length);
+    // console.log("RANDOM ORDER SIZE" + randomOrder.length);
     for (index2 = 0; index2 < randomOrder.length; index2++){
-      console.log("Shuffled order " + randomOrder[index2]);
+      // console.log("Shuffled order " + randomOrder[index2]);
     }
 
     currentNumberStudents = (pieces.length - totalNumberStudents);
@@ -108,7 +109,7 @@ function renderTiles(image){
         ctx.drawImage(
           img,
           im_col*pieceWidth, im_row*pieceHeight, pieceWidth, pieceHeight,
-          im_col * pieceWidth, im_row*pieceHeight, pieceWidth, pieceHeight
+          im_col*pieceWidth, im_row*pieceHeight, pieceWidth, pieceHeight
         );
       }
     }

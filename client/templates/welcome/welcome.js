@@ -1,6 +1,6 @@
 Template.welcome.helpers({
   locations: function(){
 
-    return Locations.find({submitted: 0});
+    return Locations.find();
   }
 });
