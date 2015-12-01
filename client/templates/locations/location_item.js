@@ -21,8 +21,12 @@ Template.debugLocation.helpers({
 // }
 Template.locationItem.onRendered(function() {
   var self = this;
+
+  images = ["/images/howdy.jpg","/images/ring.jpg","/images/football.jpg", "/images/band.jpg"]
+  var image = images[Math.floor(Math.random() * images.length)];
+
   self.autorun(function() {
-    renderTiles();
+    renderTiles(image);
   });
 });
 
@@ -40,7 +44,7 @@ function getCurrentCheckins(location){
   return Checkins.find({location_id: location._id}).fetch().length;
 }
 
-function renderTiles(){
+function renderTiles(image){
   var location = getLocation();
   console.log("Number of Expected: " + getExpectedCheckins(location));
   console.log("Number of Current Checkins: " + getCurrentCheckins(location));
@@ -64,7 +68,8 @@ function renderTiles(){
 
   var img = new Image();
   img.onload=start;
-  img.src= "/images/howdy.jpg";
+
+  img.src= image;
 
   function start(){
     var iw=canvas.width=img.width;
@@ -92,27 +97,41 @@ function renderTiles(){
       console.log("Shuffled order " + randomOrder[index2]);
     }
 
+    currentNumberStudents = (pieces.length - totalNumberStudents);
+    for(var im = 0; im<randomOrder.length; im++){
+      // window.alert(currentNumberStudents)
+      if (im < currentNumberStudents){
+        var im_row = Math.floor(randomOrder[im] / rows);
+        var im_col = (randomOrder[im] % cols);
+        // window.alert(im_row + " " + im_col);
 
-
-    // GOING THROUGH EACH COL AND ROW AND PLACING IMAGES ONCE AT A TIME BOTTOM TO TOP
-    var i = 0;
-    for(var y=0;y<rows;y++){ // Iterate through each row
-      for(var x=0;x<cols;x++){ // Iterate through each col
-        if (i < missingNumberStudents){
-          var p=pieces[i++];
-        } else {
-          var p=pieces[i++];
-          ctx.drawImage(
-            // from the original image
-            img,
-            // take the next x,y piece
-            x*pieceWidth, y*pieceHeight, pieceWidth, pieceHeight,
-            // draw it on canvas based on the shuffled pieces[] array
-            p.col*pieceWidth, p.row*pieceHeight, pieceWidth, pieceHeight
-          );
-        }
+        ctx.drawImage(
+          img,
+          im_col*pieceWidth, im_row*pieceHeight, pieceWidth, pieceHeight,
+          im_col * pieceWidth, im_row*pieceHeight, pieceWidth, pieceHeight
+        );
       }
     }
+
+    // // GOING THROUGH EACH COL AND ROW AND PLACING IMAGES ONCE AT A TIME BOTTOM TO TOP
+    // var i = 0;
+    // for(var y=0;y<rows;y++){ // Iterate through each row
+    //   for(var x=0;x<cols;x++){ // Iterate through each col
+    //     if (i < missingNumberStudents){
+    //       var p=pieces[i++];
+    //     } else {
+    //       var p=pieces[i++];
+    //       ctx.drawImage(
+    //         // from the original image
+    //         img,
+    //         // take the next x,y piece
+    //         x*pieceWidth, y*pieceHeight, pieceWidth, pieceHeight,
+    //         // draw it on canvas based on the shuffled pieces[] array
+    //         p.col*pieceWidth, p.row*pieceHeight, pieceWidth, pieceHeight
+    //       );
+    //     }
+    //   }
+    // }
   }
 };
 

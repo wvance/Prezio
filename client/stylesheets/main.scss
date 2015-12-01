@@ -20,6 +20,9 @@ html, body{
   /*font-family: 'Roboto', Helvetica, Arial, sans-serif;*/
   font-weight: 300;
   -webkit-overflow-scrolling: touch;
+   margin:0;
+   padding:0;
+   padding-bottom:60px;
 }
 /*h1, h2, h3, h4{
   font-family: 'ralewaylight';
@@ -32,11 +35,17 @@ p{
   color: #696969;
   line-height: 30px;
 }
+.container{
+  min-height:100%;
+  position:relative;
+}
+
 .white{
   color:white;
 }
 .center{
   text-align: center;
+  width:100%;
   margin-left: auto;
   margin-right: auto;
 }
@@ -100,4 +109,18 @@ ul{
   list-style-type: none;
   padding: 0px;
   margin: 0px;
+}
+
+#footer{
+  position: absolute;
+  height:60px;
+  background-color: $blueGrey;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding: 1rem;
+  text-align: center;
+  .footerImage{
+    padding-top:5px;
+  }
 }

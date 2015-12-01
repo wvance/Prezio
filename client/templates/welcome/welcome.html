@@ -1,10 +1,9 @@
 <template name="welcome">
   <div class="row" id="welcomeContainer">
-    <div class="col-md-12 col-sm-12">
-      {{#unless locations.length = 0}}
-        <h1 class="white center">Select your checkin!</h1><br>
-      {{/unless}}
-
+    <div class="col-xs-12 center logo">
+      <img src="images/PrezioB.png" class="class" width="300px" height="60px">
+    </div>
+    <div class="col-md-12 col-sm-12 col-xs-12">
       {{#each locations}}
         <div class="col-sm-6 col-md-6">
           <a href="{{pathFor 'locationPage'}}">
@@ -17,22 +16,7 @@
           </a>
         </div>
       {{/each}}
-      <div class="col-sm-6 col-md-6">
-        <img src="images/android.png" alt="Android" height="85" width="260">
-      </div>
       <br>
-      <!-- <h1 class="white center"><i class="fa fa-plus"></i> Add New Class</h1> -->
-      <!-- ADD NEW CHECKIN BUTTON HERE -->
-      <!-- <div class="jumbotron">
-        <h1>Welcome to Prezio</h1>
-        <p>
-          {{#if currentUser}}
-            <p>Would you like to create a new location or checkin to one now?</p>
-            <a class="btn btn-success btn-lg" href="{{pathFor 'checkinSubmit'}}" role="button">Checkin</a>
-            <a class="btn btn-primary btn-lg" href="{{pathFor 'locationSubmit'}}" role="button">Create Location</a>
-          {{/if}}
-        </p>
-      </div> -->
     </div>
   </div>
 </template>
