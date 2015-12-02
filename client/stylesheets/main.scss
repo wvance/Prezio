@@ -1,5 +1,6 @@
 @import url(https://fonts.googleapis.com/css?family=Raleway:400,300);
 @import url(http://fonts.googleapis.com/css?family=Raleway+Dots);
+@import url(https://fonts.googleapis.com/css?family=Open+Sans);
 /*BODY*/
 
 // STYLE COLORS
@@ -23,13 +24,14 @@ html, body{
    margin:0;
    padding:0;
 }
-/*h1, h2, h3, h4{
-  font-family: 'ralewaylight';
+h1, h2, h3, h4{
+  font-family: 'Open Sans', sans-serif;
 }
 h5, h6{
-  font-family: 'ralewayregular';
-}*/
+  font-family: 'Open Sans', sans-serif;
+}
 p{
+  font-family: 'Open Sans', sans-serif;
   font-size: 18px;
   color: #696969;
   line-height: 30px;
@@ -39,7 +41,9 @@ p{
   // position:relative;
   padding-bottom:70px;
 }
-
+.thumbnail{
+  border:none !important;
+}
 .white{
   color:white;
 }
